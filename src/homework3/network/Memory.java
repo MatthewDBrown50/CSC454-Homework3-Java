@@ -1,14 +1,14 @@
 package homework3.network;
 
 public class Memory {
-    private int[] s;
+    private final int[] s;
 
     protected Memory(){
         this.s = new int[2];
     }
 
     protected String lambda(){
-        return "(" + s[0] + "," + s[1] + ")";
+        return String.valueOf(this.s[0]);
     }
 
     protected void delta(int x){
@@ -16,7 +16,7 @@ public class Memory {
         s[1] = x;
     }
 
-    public int getS() {
-        return s[0];
+    public int[] getS() {
+        return s;
     }
 }

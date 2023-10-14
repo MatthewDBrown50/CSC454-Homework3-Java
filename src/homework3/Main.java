@@ -11,7 +11,6 @@ public class Main {
         Network network = new Network();
 
         Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
 
         while(true){
 

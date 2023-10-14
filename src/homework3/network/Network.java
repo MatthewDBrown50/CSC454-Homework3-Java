@@ -14,8 +14,10 @@ public class Network {
         this.xor2 = new XOR();
         this.memory = new Memory();
         this.internalCycle = 0;
+        String deltaSymbol = "\uD835\uDDC3";
+        String lambdaSymbol = "λ";
 
-        System.out.println("t  Xn  Xxor1  Xxor2  Xm  Sxor1  Sxor2   Sm   Yxor1  Yxor2  Ym  Yn");
+        System.out.println("t  Xn  Xxor1  Xxor2  Xm  δxor1  δxor2   δm   λxor1  λxor2  λm  λn");
         System.out.println("0                         0      0     (0,0)                     ");
     }
 
@@ -27,7 +29,7 @@ public class Network {
             internalCycle++;
 
             xor1Input = input;
-            xor2Input = new int[]{xor1.getS(), memory.getS()};
+            xor2Input = new int[]{xor1.getS(), memory.getS()[0]};
             memoryInput = xor2.getS();
 
             String lambdaValues = this.lambda();
@@ -36,11 +38,11 @@ public class Network {
 
             String xor1State = String.valueOf(xor1.getS());
             String xor2State = String.valueOf(xor2.getS());
-            String memoryState = String.valueOf(memory.getS());
+            String memoryState = "(" + memory.getS()[0] + "," + memory.getS()[1] + ")";
 
             String outputString = internalCycle + "  " + input[0] + input[1] + "   " + xor1Input[0] + xor1Input[1] +
-                    "     " + xor2Input[0] + xor2Input[1] + "    " + memoryInput + "    " + lambdaValues + xor1State +
-                    "      " + xor2State + "     " + memoryState + "   " + xor2State + "\n";
+                    "     " + xor2Input[0] + xor2Input[1] + "    " + memoryInput + "    " +  xor1State +
+                    "      " + xor2State + "     " + memoryState + "  " + lambdaValues + "\n";
             sb.append(outputString);
         }
 
@@ -52,7 +54,7 @@ public class Network {
         String xor2Lambda = xor2.lambda();
         String memoryLambda = memory.lambda();
 
-        return xor1Lambda + "      " + xor2Lambda + "     " + memoryLambda + "   ";
+        return xor1Lambda + "      " + xor2Lambda + "     " + memoryLambda + "    " + xor2Lambda;
     }
 
     private void delta(){
