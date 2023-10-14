@@ -12,9 +12,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        while(true){
+        String input = "";
 
-            String input = scanner.nextLine();
+        while(!input.equals("exit")){
+
+            input = scanner.nextLine();
 
             char[] inputArray = input.toCharArray();
 

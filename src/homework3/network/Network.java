@@ -14,8 +14,6 @@ public class Network {
         this.xor2 = new XOR();
         this.memory = new Memory();
         this.internalCycle = 0;
-        String deltaSymbol = "\uD835\uDDC3";
-        String lambdaSymbol = "λ";
 
         System.out.println("t  Xn  Xxor1  Xxor2  Xm  δxor1  δxor2   δm   λxor1  λxor2  λm  λn");
         System.out.println("0                         0      0     (0,0)                     ");
