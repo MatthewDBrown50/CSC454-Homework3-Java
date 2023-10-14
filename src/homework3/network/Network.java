@@ -40,7 +40,9 @@ public class Network {
             String xor2State = String.valueOf(xor2.getS());
             String memoryState = "(" + memory.getS()[0] + "," + memory.getS()[1] + ")";
 
-            String outputString = internalCycle + "  " + input[0] + input[1] + "   " + xor1Input[0] + xor1Input[1] +
+            String initialSpacing = internalCycle < 10 ? "  " : " ";
+
+            String outputString = internalCycle + initialSpacing + input[0] + input[1] + "   " + xor1Input[0] + xor1Input[1] +
                     "     " + xor2Input[0] + xor2Input[1] + "    " + memoryInput + "    " +  xor1State +
                     "      " + xor2State + "     " + memoryState + "  " + lambdaValues + "\n";
             sb.append(outputString);
